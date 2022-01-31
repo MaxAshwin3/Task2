@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Signup_activity">
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint = "Enter Your Name"
+        android:textSize="24dp"
+        android:layout_marginTop="200dp"
+        android:id = "@+id/nameView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id = "@+id/number"
+        android:layout_marginTop="8dp"
+        android:textSize="24dp"
+        android:hint="Enter Your Number"
+        app:layout_constraintTop_toBottomOf="@id/nameView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id = "@+id/signupEmail"
+        android:layout_marginTop="8dp"
+        android:textSize="24dp"
+        android:hint="Enter Your Email"
+        app:layout_constraintTop_toBottomOf="@id/number"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id = "@+id/signupPassword"
+        android:layout_marginTop="8dp"
+        android:textSize="24dp"
+        android:hint="Enter Your Password"
+        app:layout_constraintTop_toBottomOf="@id/signupEmail"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/signupButton"
+        android:layout_marginTop="8dp"
+        android:text="Sign Up"
+        android:textSize="24dp"
+        android:background="@drawable/button"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintTop_toBottomOf="@id/signupPassword"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
