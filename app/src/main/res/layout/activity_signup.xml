@@ -9,11 +9,20 @@
     <androidx.appcompat.widget.AppCompatEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint = "Enter Your Name"
+        android:hint = "Enter Your First Name"
         android:textSize="24dp"
         android:layout_marginTop="200dp"
-        android:id = "@+id/nameView"
+        android:id = "@+id/FirstnameView"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint = "Enter Your Last Name"
+        android:textSize="24dp"
+        android:id = "@+id/LastnameView"
+        app:layout_constraintTop_toBottomOf="@id/FirstnameView"
         app:layout_constraintLeft_toLeftOf="parent"
         />
     <androidx.appcompat.widget.AppCompatEditText
@@ -23,7 +32,7 @@
         android:layout_marginTop="8dp"
         android:textSize="24dp"
         android:hint="Enter Your Number"
-        app:layout_constraintTop_toBottomOf="@id/nameView"
+        app:layout_constraintTop_toBottomOf="@id/LastnameView"
         app:layout_constraintLeft_toLeftOf="parent"
         />
     <androidx.appcompat.widget.AppCompatEditText
@@ -46,6 +55,43 @@
         app:layout_constraintTop_toBottomOf="@id/signupEmail"
         app:layout_constraintLeft_toLeftOf="parent"
         />
+
+      <RadioGroup
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          android:id="@+id/radioGrp"
+          app:layout_constraintTop_toBottomOf="@id/signupPassword"
+          app:layout_constraintLeft_toLeftOf="parent" >
+
+
+    <androidx.appcompat.widget.AppCompatRadioButton
+        android:id="@+id/maleRadio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Male"
+        app:layout_constraintTop_toBottomOf="@id/signupPassword"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        android:textSize="24sp"
+
+
+        />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/femaleRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female"
+            android:textSize="24sp"
+
+
+
+            />
+      </RadioGroup>
+
+
+
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -55,7 +101,7 @@
         android:textSize="24dp"
         android:background="@drawable/button"
         android:fontFamily="sans-serif-medium"
-        app:layout_constraintTop_toBottomOf="@id/signupPassword"
+        app:layout_constraintTop_toBottomOf="@id/radioGrp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
 

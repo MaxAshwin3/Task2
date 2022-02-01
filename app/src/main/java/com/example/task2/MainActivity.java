@@ -6,6 +6,7 @@ import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -15,11 +16,14 @@ import com.example.task2.Base.BaseActivity;
 import com.example.task2.Database.DbHelper;
 
 public class MainActivity extends BaseActivity {
-    AppCompatEditText name;
+    AppCompatEditText emaill;
     AppCompatEditText password;
     AppCompatButton button;
     AppCompatTextView signupText;
     DbHelper dbHelper;
+    SharedPreferences sp;
+
+    private static final String KEY_EMAIL = "e_mail";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,30 +47,45 @@ public class MainActivity extends BaseActivity {
     @Override
     public void initUi() {
         super.initUi();
-        name = findViewById(R.id.emailView);
+        emaill = findViewById(R.id.emailView);
         password = findViewById(R.id.password);
         button = findViewById(R.id.loginButton);
         signupText = findViewById(R.id.signupText);
         dbHelper = new DbHelper(this);
+        sp = getSharedPreferences("LoginData", MODE_PRIVATE);
+        String email = sp.getString(KEY_EMAIL, null);
+        if(email != null){
+            Intent intent = new Intent(MainActivity.this, welcomeActivity.class);
+            startActivity(intent);
+        }
+
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                String usrname = name.getText().toString();
+                String usremail = emaill.getText().toString();
                 String usrpass = password.getText().toString();
 
-                if(usrname.equals("") || usrpass.equals(""))
+
+
+
+
+                if(usremail.equals("") || usrpass.equals(""))
                 {
                     Toast.makeText(getApplicationContext(),"Enter Details",Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
-                   Boolean log= dbHelper.CheckUserNamePassword(usrname , usrpass);
+                   Boolean log= dbHelper.CheckEmailPassword(usremail , usrpass);
 
                    if(log == true)
                    {
                        Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
+                       SharedPreferences.Editor editor = sp.edit();
+                       editor.putString(KEY_EMAIL,usremail);
+
+                       editor.apply();
                        Intent intent = new Intent(getApplicationContext(),welcomeActivity.class);
                        startActivity(intent);
                    }

@@ -10,7 +10,7 @@
     <androidx.appcompat.widget.AppCompatEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint = "Enter Your Name"
+        android:hint = "Enter Your Email"
         android:textSize="24dp"
         android:layout_marginTop="200dp"
         android:id = "@+id/emailView"
