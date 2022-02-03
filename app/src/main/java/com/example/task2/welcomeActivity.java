@@ -1,10 +1,17 @@
 package com.example.task2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.task2.Adapters.FragmentAdapters;
 import com.google.android.material.tabs.TabLayout;
@@ -12,7 +19,27 @@ import com.google.android.material.tabs.TabLayout;
 public class welcomeActivity extends AppCompatActivity {
    TabLayout tabLayout;
    ViewPager2 viewPager2;
+   Toolbar toolbar;
    FragmentAdapters fragmentAdapters;
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.bottomNavMenu:
+                Intent intent = new Intent(getApplicationContext(), BottomNav.class);
+                startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return true;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +47,10 @@ public class welcomeActivity extends AppCompatActivity {
 
          tabLayout = findViewById(R.id.tabLayout);
          viewPager2 = findViewById(R.id.viewPager);
+         toolbar = findViewById(R.id.toolbar);
+
+         setSupportActionBar(toolbar);
+
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentAdapters = new FragmentAdapters(fragmentManager,getLifecycle());
@@ -58,6 +89,7 @@ public class welcomeActivity extends AppCompatActivity {
                tabLayout.selectTab(tabLayout.getTabAt(position));
            }
        });
+
 
         }
     }

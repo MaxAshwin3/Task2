@@ -12,6 +12,8 @@
         <activity
             android:name=".welcomeActivity"
             android:exported="false" />
+        <activity android:name=".BottomNav"
+            android:exported="false" />
         <activity
             android:name=".Signup_activity"
             android:exported="false" />
